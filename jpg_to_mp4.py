@@ -1,7 +1,7 @@
 import cv2
 import os
 
-def images_to_video(input_dir, output_video_path, fps=30):
+def images_to_video(input_dir, output_video_path, fps=10):
     # Сканируем JPG-файлы и сортируем по имени
     images = sorted([
         os.path.join(input_dir, img)
@@ -25,7 +25,7 @@ def images_to_video(input_dir, output_video_path, fps=30):
     fourcc = cv2.VideoWriter_fourcc(*'mp4v')  # MP4
     video_writer = cv2.VideoWriter(output_video_path, fourcc, fps, (width, height))
 
-    for img_path in images[::12]:
+    for img_path in images:
         frame = cv2.imread(img_path)
         if frame is None:
             print(f'⚠️ Пропущено поврежденное изображение: {img_path}')
@@ -37,7 +37,7 @@ def images_to_video(input_dir, output_video_path, fps=30):
     print(f'✅ Видео сохранено: {output_video_path}')
 
 # === Указать директории ===
-input_directory = r'D:/Avocation/Sky/83. 12-13.09.2025/tl'
-output_video = r'D:/Avocation/Sky/83. 12-13.09.2025/timelaps_minjpg_reduce.mp4'
+input_directory = r'D:\Avocation\Sky\80. 07-08.09.2025\cropped_1080_edited'
+output_video = r'D:\Avocation\Sky\80. 07-08.09.2025\timelapse.mp4'
 
 images_to_video(input_directory, output_video)
