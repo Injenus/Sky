@@ -24,7 +24,7 @@ def extract_thumbnails_from_arw(input_dir, output_dir):
                 print(f'❌ Ошибка обработки {filename}: {e}')
 
 # === Указать директории ===
-input_directory = 'D:/Avocation/Sky/70. 09.06.2025/raw/valid'
-output_directory = 'D:/Avocation/Sky/70. 09.06.2025/minjpg_valid'
+input_directory = r'D:/Avocation/Sky/83. 12-13.09.2025/raw'
+output_directory = r'D:/Avocation/Sky/83. 12-13.09.2025/minjpg'
 
 extract_thumbnails_from_arw(input_directory, output_directory)

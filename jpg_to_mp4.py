@@ -25,7 +25,7 @@ def images_to_video(input_dir, output_video_path, fps=30):
     fourcc = cv2.VideoWriter_fourcc(*'mp4v')  # MP4
     video_writer = cv2.VideoWriter(output_video_path, fourcc, fps, (width, height))
 
-    for img_path in images:
+    for img_path in images[::12]:
         frame = cv2.imread(img_path)
         if frame is None:
             print(f'⚠️ Пропущено поврежденное изображение: {img_path}')
@@ -37,7 +37,7 @@ def images_to_video(input_dir, output_video_path, fps=30):
     print(f'✅ Видео сохранено: {output_video_path}')
 
 # === Указать директории ===
-input_directory = 'D:/Avocation/Sky/71. 17.06.2025/jpg/valid'
-output_video = '71. 17.06.2025/timelaps_jpg.mp4'
+input_directory = r'D:/Avocation/Sky/83. 12-13.09.2025/tl'
+output_video = r'D:/Avocation/Sky/83. 12-13.09.2025/timelaps_minjpg_reduce.mp4'
 
 images_to_video(input_directory, output_video)
