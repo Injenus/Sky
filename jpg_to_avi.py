@@ -35,8 +35,8 @@ def images_to_uncompressed_avi(input_dir, output_video_path, fps=30):
     print(f'✅ Несжатое AVI видео сохранено: {output_video_path}')
 
 # === Пути ===
-input_directory = 'D:/Avocation/Sky/69. 08.06.2025/jpg/valid'
-output_video = 'D:/Avocation/Sky/69. 08.06.2025/timelaps_jpg_valid.avi'
+input_directory = r'D:\Avocation\Sky\80. 07-08.09.2025\jpg'
+output_video = r'D:\Avocation\Sky\80. 07-08.09.2025\timelapse_rawjpg.avi'
 
 images_to_uncompressed_avi(input_directory, output_video)
 

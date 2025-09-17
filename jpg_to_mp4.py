@@ -1,7 +1,7 @@
 import cv2
 import os
 
-def images_to_video(input_dir, output_video_path, fps=10):
+def images_to_video(input_dir, output_video_path, fps=30):
     # Сканируем JPG-файлы и сортируем по имени
     images = sorted([
         os.path.join(input_dir, img)
@@ -37,7 +37,7 @@ def images_to_video(input_dir, output_video_path, fps=10):
     print(f'✅ Видео сохранено: {output_video_path}')
 
 # === Указать директории ===
-input_directory = r'D:\Avocation\Sky\80. 07-08.09.2025\cropped_1080_edited'
-output_video = r'D:\Avocation\Sky\80. 07-08.09.2025\timelapse.mp4'
+input_directory = r'D:\Avocation\Sky\80. 07-08.09.2025\jpg'
+output_video = r'D:\Avocation\Sky\80. 07-08.09.2025\timelapse_rawjpg.mp4'
 
 images_to_video(input_directory, output_video)

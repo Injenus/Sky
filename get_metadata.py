@@ -13,8 +13,8 @@ import argparse
 from datetime import datetime, timedelta
 
 # ДЕФОЛТНЫЕ ПУТИ (можно изменить под свои)
-pref = r'D:\Avocation\Sky\77. 24.07.2025\raw'
-suff = 'valid'
+pref = r'D:\Avocation\Sky\83. 12-13.09.2025\raw'
+suff = '' #valid
 DEFAULT_INPUT_DIR = os.path.join(pref, suff)    # фактический путь <pref>\<suff>
 DEFAULT_OUTPUT_DIR = os.path.join(pref, 'metadata') # фактический путь <pref>\metadata
 
@@ -22,6 +22,7 @@ DEFAULT_OUTPUT_DIR = os.path.join(pref, 'metadata') # фактический п�
 # Часы камеры отстают на это количество секунд (может быть больше 60)
 TIME_CORRECTION_SECONDS = 70.8
 TIME_ZONE = 'UTC+3'
+IS_VALID_TIME = False
 
 
 def format_exposure_from_seconds(sec_value):
@@ -249,7 +250,10 @@ def generate_reports(input_dir, output_dir):
                     rep.write(f"Диафрагма: {info['aperture']}\n")
                     rep.write(f"ISO: {info['iso']}\n")
                     rep.write(f"Время снимка (камера): {info['camera_time']} {TIME_ZONE}\n")
-                    rep.write(f"Время снимка (реальное): {info['real_time']} {TIME_ZONE}\n")
+                    if not IS_VALID_TIME:
+                        rep.write(f"Коррекция указана НЕВЕРНО!\n")
+                    else:
+                        rep.write(f"Время снимка (реальное): {info['real_time']} {TIME_ZONE}\n")
                     rep.write(f"\nПримечание: применена коррекция +{TIME_CORRECTION_SECONDS} сек\n")
                     rep.write(f"Записывается время конца выдержки\n")
                         
